@@ -1,0 +1,47 @@
+/* playfair-display-sc - black */
+@font-face {
+    font-family: 'Playfair Display SC';
+    font-style: normal;
+    font-weight: 900;
+    src: url('~assets/fonts/PlayfairDisplaySC-Black.ttf') format('truetype');
+}
+
+/* playfair-display-sc - black-italic */
+@font-face {
+    font-family: 'Playfair Display SC';
+    font-style: italic;
+    font-weight: 900;
+    src: url('~assets/fonts/PlayfairDisplaySC-BlackItalic.ttf') format('truetype');
+}
+
+/* playfair-display-sc - bold */
+@font-face {
+    font-family: 'Playfair Display SC';
+    font-style: normal;
+    font-weight: 700;
+    src: url('~assets/fonts/PlayfairDisplaySC-Bold.ttf') format('truetype');
+}
+
+/* playfair-display-sc - bold-italic */
+@font-face {
+    font-family: 'Playfair Display SC';
+    font-style: italic;
+    font-weight: 700;
+    src: url('~assets/fonts/PlayfairDisplaySC-BoldItalic.ttf') format('truetype');
+}
+
+/* playfair-display-sc - italic */
+@font-face {
+    font-family: 'Playfair Display SC';
+    font-style: italic;
+    font-weight: 400;
+    src: url('~assets/fonts/PlayfairDisplaySC-Italic.ttf') format('truetype');
+}
+
+/* playfair-display-sc - regular */
+@font-face {
+    font-family: 'Playfair Display SC';
+    font-style: normal;
+    font-weight: 400;
+    src: url('~assets/fonts/PlayfairDisplaySC-Regular.ttf') format('truetype');
+}

@@ -12,7 +12,11 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     colors: {
-      green: colors.emerald
+      green: colors.emerald,
+      red: colors.red
+    },
+    fontFamily: {
+      playfair: ['Playfair Display SC']
     },
     extend: {}
   },
