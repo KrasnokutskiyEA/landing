@@ -30,7 +30,8 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    'nuxt-lazysizes'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -43,6 +44,14 @@ export default {
   pwa: {
     manifest: {
       lang: 'en'
+    }
+  },
+
+  // lazySizes module configuration:
+  lazySizes: {
+    extendAssetUrls: {
+      img: ['src', 'srcset', 'data-src', 'data-srcset'],
+      source: ['src', 'srcset', 'data-src', 'data-srcset']
     }
   },
 
