@@ -31,7 +31,8 @@ export default {
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
     '@nuxtjs/tailwindcss',
-    'nuxt-lazysizes'
+    'nuxt-lazysizes',
+    '@nuxtjs/cloudinary'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -53,6 +54,12 @@ export default {
       img: ['src', 'srcset', 'data-src', 'data-srcset'],
       source: ['src', 'srcset', 'data-src', 'data-srcset']
     }
+  },
+
+  // cloudinary module configuration:
+  cloudinary: {
+    cloudName: process.env.CLOUDNAME,
+    useComponent: true
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
