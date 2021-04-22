@@ -5,7 +5,7 @@
     </h1>
 
     <img
-      src="~/assets/images/hero-thumb.svg"
+      src="~/assets/images/thumbnail.jpg"
       data-srcset="
       https://res.cloudinary.com/dfsb9sgvt/image/upload/c_scale,w_320,f_auto,q_auto/hero.jpg 320w,
       https://res.cloudinary.com/dfsb9sgvt/image/upload/c_scale,w_480,f_auto,q_auto/hero.jpg 480w,
