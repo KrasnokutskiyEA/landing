@@ -5,43 +5,19 @@
     </h1>
 
     <img
+      src="~/assets/images/hero-thumb.svg"
+      data-srcset="
+      https://res.cloudinary.com/dfsb9sgvt/image/upload/c_scale,w_320,f_auto,q_auto/hero.jpg 320w,
+      https://res.cloudinary.com/dfsb9sgvt/image/upload/c_scale,w_480,f_auto,q_auto/hero.jpg 480w,
+      https://res.cloudinary.com/dfsb9sgvt/image/upload/c_scale,w_768,f_auto,q_auto/hero.jpg 768w,
+      https://res.cloudinary.com/dfsb9sgvt/image/upload/c_scale,w_1024,f_auto,q_auto/hero.jpg 1024w,
+      https://res.cloudinary.com/dfsb9sgvt/image/upload/c_scale,w_1280,f_auto,q_auto/hero.jpg 1280w,
+      https://res.cloudinary.com/dfsb9sgvt/image/upload/c_scale,w_1800,f_auto,q_auto/hero.jpg 1800w,
+      "
+      data-src="https://res.cloudinary.com/dfsb9sgvt/image/upload/f_auto,q_auto/hero.jpg"
       width="100%"
+      alt="Hero image"
       class="lazyload"
-      src="data:image/gif;base64,R0lGODlhEgALAIAAAP///wAAACH5BAEAAAEALAAAAAASAAsAAAIMjI+py+0Po5y02ssKADs="
-      data-src="~/assets/images/bkg_1.jpg"
-      alt="image"
-    >
-
-    <img
-      width="100%"
-      class="lazyload"
-      src="data:image/gif;base64,R0lGODlhEgALAIAAAP///wAAACH5BAEAAAEALAAAAAASAAsAAAIMjI+py+0Po5y02ssKADs="
-      data-src="~/assets/images/bkg_2.jpg"
-      alt="image"
-    >
-
-    <img
-      width="100%"
-      class="lazyload"
-      src="data:image/gif;base64,R0lGODlhEgALAIAAAP///wAAACH5BAEAAAEALAAAAAASAAsAAAIMjI+py+0Po5y02ssKADs="
-      data-src="~/assets/images/bkg_3.jpg"
-      alt="image"
-    >
-
-    <img
-      width="100%"
-      class="lazyload"
-      src="data:image/gif;base64,R0lGODlhEgALAIAAAP///wAAACH5BAEAAAEALAAAAAASAAsAAAIMjI+py+0Po5y02ssKADs="
-      data-src="~/assets/images/bkg_4.jpg"
-      alt="image"
-    >
-
-    <img
-      width="100%"
-      class="lazyload"
-      src="data:image/gif;base64,R0lGODlhEgALAIAAAP///wAAACH5BAEAAAEALAAAAAASAAsAAAIMjI+py+0Po5y02ssKADs="
-      data-src="~/assets/images/bkg_5.jpg"
-      alt="image"
     >
   </div>
 </template>
