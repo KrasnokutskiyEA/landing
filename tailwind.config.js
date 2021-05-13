@@ -1,4 +1,4 @@
-const colors = require('tailwindcss/colors')
+// const colors = require('tailwindcss/colors')
 
 module.exports = {
   mode: 'jit',
@@ -12,8 +12,12 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     colors: {
-      green: colors.emerald,
-      red: colors.red
+      // green: colors.emerald,
+      // red: colors.red,
+      'custom-red': '#480909',
+      'custom-yellow': '#ab965d',
+      'custom-sand': '#faffd0',
+      'custom-sun': '#ffb939'
     },
     fontFamily: {
       playfair: ['Playfair Display SC']
