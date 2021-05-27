@@ -3,9 +3,3 @@
     <h3>This is Slide2</h3>
   </div>
 </template>
-
-<style scoped>
-h3 {
-  color: red;
-}
-</style>
