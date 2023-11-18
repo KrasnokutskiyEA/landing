@@ -1,0 +1,22 @@
+{
+  "extends": [
+    "standard-with-typescript",
+    "next"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    "react/jsx-indent" : ["error", 2],
+    "jsx-quotes": ["error", "prefer-single"],
+    "react/self-closing-comp": ["error", {
+      "component": true,
+      "html": true
+    }],
+    "space-before-function-paren": "off",
+    "@typescript-eslint/space-before-function-paren": "off"
+  }
+}
