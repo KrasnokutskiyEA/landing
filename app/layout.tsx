@@ -1,6 +1,10 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import ActiveSectionContextProvider from '@/context/active-section-context'
+import ThemeContextProvider from '@/context/theme-context'
+import Header from '@/components/header'
+import Footer from '@/components/footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,8 +19,23 @@ export default function RootLayout({
   children: React.ReactNode
 }): React.ReactElement {
   return (
-    <html lang='en'>
-      <body className={inter.className}>{children}</body>
+    <html lang='en' className='no-scrollbar overflow-y-scroll !scroll-smooth'>
+      <body
+        className={`${inter.className} relative bg-gray-50 text-gray-950 dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90`}
+      >
+        <ThemeContextProvider>
+          <ActiveSectionContextProvider>
+            <Header />
+            {children}
+            <Footer />
+
+            {/*
+            <Toaster position='top-right' />
+            <ThemeSwitch />
+            */}
+          </ActiveSectionContextProvider>
+        </ThemeContextProvider>
+      </body>
     </html>
   )
 }
