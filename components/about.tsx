@@ -6,16 +6,19 @@ import { motion } from 'framer-motion'
 import { useSectionInView } from '@/lib/hooks'
 
 export default function About(): React.ReactElement {
-  const { ref } = useSectionInView('About')
+  const { ref } = useSectionInView('About', '#about')
 
   return (
     <motion.section
       ref={ref}
       className='mb-28 max-w-[45rem] scroll-mt-28 text-center leading-8 sm:mb-40'
-      initial={{ opacity: 0, y: 100 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.175 }}
+      initial={{ opacity: 0, x: 300 }}
+      transition={{ delay: 0.3 }}
       id='about'
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{
+        once: true
+      }}
     >
       <SectionHeading>About me</SectionHeading>
       <p className='mb-3'>

@@ -12,13 +12,13 @@ import { useActiveSectionContext } from '@/context/active-section-context'
 import hero from '../public/hero.webp'
 
 export default function Intro(): React.ReactElement {
-  const { ref } = useSectionInView('Home', 0.5)
+  const { ref } = useSectionInView('Home', '#home', 0.5)
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext()
 
   return (
     <section ref={ref} id='home'>
-      <div className='flex h-screen w-screen flex-col items-center justify-center overflow-hidden'>
-        <div className='absolute -z-10 h-full w-full'>
+      <div className='relative flex h-screen w-screen flex-col items-center justify-center overflow-hidden'>
+        <div className='absolute -z-10 h-full w-full brightness-50 grayscale'>
           <Image
             src={hero}
             placeholder='blur'
