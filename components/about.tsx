@@ -13,7 +13,7 @@ export default function About(): React.ReactElement {
       <motion.div
         className='my-24 hidden h-16 w-1 rounded-full bg-gray-300 dark:bg-opacity-20 sm:block'
         initial={{ opacity: 0 }}
-        transition={{ delay: 0.3, duration: 1 }}
+        transition={{ delay: 0.3, duration: 0.5 }}
         id='section-divider'
         whileInView={{ opacity: 1 }}
         viewport={{
@@ -24,8 +24,8 @@ export default function About(): React.ReactElement {
       <motion.section
         ref={ref}
         className='mb-28 max-w-[45rem] scroll-mt-28 px-10 text-center leading-8 sm:mb-40 sm:px-16'
-        initial={{ opacity: 0, x: 400 }}
-        transition={{ type: 'spring', duration: 1, bounce: 0.4, delay: 0.3 }}
+        initial={{ opacity: 0, x: 200 }}
+        transition={{ type: 'spring', duration: 0.5, bounce: 0.4, delay: 0.3 }}
         id='about'
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{

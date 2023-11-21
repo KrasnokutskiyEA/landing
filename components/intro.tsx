@@ -10,6 +10,7 @@ import { BsArrowRight /*, BsLinkedin */ } from 'react-icons/bs'
 import { useSectionInView } from '@/lib/hooks'
 import { useActiveSectionContext } from '@/context/active-section-context'
 import { Playfair_Display_SC } from 'next/font/google'
+import Globe from './svgs/globe.svg'
 import hero from '../public/hero.webp'
 
 const playfair = Playfair_Display_SC({
@@ -24,8 +25,8 @@ export default function Intro(): React.ReactElement {
 
   return (
     <section ref={ref} id='home'>
-      <div className='relative mb-28 flex h-screen w-screen flex-col items-center justify-center overflow-hidden sm:mb-0'>
-        <div className='absolute -z-10 h-full w-full bg-emerald-600 brightness-[0.4] saturate-[0.3]'>
+      <div className='relative mb-28 flex h-screen min-h-[620px] w-screen flex-col items-center justify-evenly overflow-hidden sm:mb-0'>
+        <div className='absolute -z-10 h-full w-full'>
           <Image
             src={hero}
             placeholder='blur'
@@ -37,45 +38,55 @@ export default function Intro(): React.ReactElement {
             style={{
               objectFit: 'cover'
             }}
-            className='mix-blend-overlay'
           />
         </div>
+
+        <motion.div
+          className='w-1/3 sm:w-3/12 md:w-2/12'
+          initial={{ opacity: 0, y: -100 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 1
+          }}
+        >
+          <Globe />
+        </motion.div>
 
         <motion.div
           className={`${playfair.className} space-y-6 text-center`}
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 1
+          }}
         >
-          <h1 className='bg-gradient-to-r from-emerald-300 to-teal-400 bg-clip-text text-4xl italic text-transparent sm:text-7xl md:text-8xl'>
+          <h1 className='text-4xl italic text-white sm:text-7xl md:text-8xl'>
             {'International Volunteer'}
           </h1>
 
-          <h3 className='bg-gradient-to-r from-green-300 to-teal-400 bg-clip-text text-2xl text-transparent sm:text-3xl md:text-5xl'>
+          <h3 className='text-2xl text-white sm:text-3xl md:text-5xl'>
             {'Best volunteer travel organization'}
           </h3>
         </motion.div>
 
         <motion.div
-          className='absolute bottom-20 gap-2 justify-self-end px-4 text-lg font-medium'
+          className='gap-2 justify-self-end px-4 text-lg font-medium'
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
-            delay: 0.1
+            delay: 0.1,
+            duration: 1
           }}
         >
           <Link
             href='#contact'
-            className='group flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-900 via-indigo-800 to-blue-900 px-7 py-3 shadow-2xl outline-none transition hover:scale-110 focus:scale-110 active:scale-105'
+            className='group flex items-center gap-2 rounded-full bg-gradient-to-r from-orange-600 via-orange-500 to-orange-600 px-7 py-3 shadow-2xl outline-none transition hover:scale-110 focus:scale-110 active:scale-105'
             onClick={() => {
               setActiveSection('Contact')
               setTimeOfLastClick(Date.now())
             }}
           >
-            <h1
-              className={`${playfair.className} text-2xl font-[700] italic text-white`}
-            >
-              Contact us{' '}
-            </h1>
+            <h1 className='text-2xl font-[700] text-white'>Contact us </h1>
             <BsArrowRight className='text-2xl font-[700] text-white opacity-70 transition group-hover:translate-x-1' />
           </Link>
           {/*
