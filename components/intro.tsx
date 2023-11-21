@@ -24,7 +24,7 @@ export default function Intro(): React.ReactElement {
 
   return (
     <section ref={ref} id='home'>
-      <div className='relative flex h-screen w-screen flex-col items-center justify-center overflow-hidden'>
+      <div className='relative mb-28 flex h-screen w-screen flex-col items-center justify-center overflow-hidden sm:mb-0'>
         <div className='absolute -z-10 h-full w-full bg-emerald-600 brightness-[0.4] saturate-[0.3]'>
           <Image
             src={hero}

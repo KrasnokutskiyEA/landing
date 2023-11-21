@@ -4,7 +4,6 @@
 
 html {
   --line-color: #e5e7eb;
-  overflow-x: hidden;
 }
 
 html.dark {
