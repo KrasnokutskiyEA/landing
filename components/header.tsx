@@ -46,7 +46,7 @@ export default function Header(): React.ReactElement {
 
                 {link.name === activeSection && (
                   <motion.span
-                    className='absolute inset-0 -z-10 rounded-full bg-gray-300 dark:bg-gray-800'
+                    className='absolute inset-0 -z-10 rounded-full bg-green-100 dark:bg-gray-800'
                     layoutId='activeSection'
                     transition={{
                       type: 'spring',
