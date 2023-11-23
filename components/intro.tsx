@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import React from 'react'
-import { motion } from 'framer-motion'
+// import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { BsArrowRight /*, BsLinkedin */ } from 'react-icons/bs'
 // import { HiDownload } from 'react-icons/hi'
@@ -14,7 +14,7 @@ import Globe from './svgs/globe.svg'
 import hero from '../public/hero.webp'
 
 const playfair = Playfair_Display_SC({
-  weight: ['400', '700', '900'],
+  weight: ['400'],
   subsets: ['latin'],
   style: ['normal', 'italic']
 })
@@ -41,25 +41,11 @@ export default function Intro(): React.ReactElement {
           />
         </div>
 
-        <motion.div
-          className='w-1/3 sm:w-3/12 md:w-2/12'
-          initial={{ opacity: 0, y: -100 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 1
-          }}
-        >
+        <div className='w-1/3 sm:w-3/12 md:w-2/12'>
           <Globe />
-        </motion.div>
+        </div>
 
-        <motion.div
-          className={`${playfair.className} space-y-6 text-center`}
-          initial={{ opacity: 0, y: 100 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 1
-          }}
-        >
+        <div className={`${playfair.className} space-y-6 text-center`}>
           <h1 className='text-4xl italic text-white sm:text-7xl md:text-8xl'>
             {'International Volunteer'}
           </h1>
@@ -67,17 +53,9 @@ export default function Intro(): React.ReactElement {
           <h3 className='text-2xl text-white sm:text-3xl md:text-5xl'>
             {'Best volunteer travel organization'}
           </h3>
-        </motion.div>
+        </div>
 
-        <motion.div
-          className='gap-2 justify-self-end px-4 text-lg font-medium'
-          initial={{ opacity: 0, y: 100 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            delay: 0.1,
-            duration: 1
-          }}
-        >
+        <div className='gap-2 justify-self-end px-4 text-lg font-medium'>
           <Link
             href='#contact'
             className='group flex items-center gap-2 rounded-full bg-gradient-to-r from-orange-600 via-orange-500 to-orange-600 px-7 py-3 shadow-2xl outline-none transition hover:scale-110 focus:scale-110 active:scale-105'
@@ -115,7 +93,7 @@ export default function Intro(): React.ReactElement {
             <FaGithubSquare />
           </a>
           */}
-        </motion.div>
+        </div>
       </div>
     </section>
   )

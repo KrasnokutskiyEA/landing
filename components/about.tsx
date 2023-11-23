@@ -2,15 +2,18 @@
 
 import React from 'react'
 import SectionHeading from './section-heading'
-import { motion } from 'framer-motion'
+import { type FeatureBundle, LazyMotion, m } from 'framer-motion'
 import { useSectionInView } from '@/lib/hooks'
 
 export default function About(): React.ReactElement {
   const { ref } = useSectionInView('About', '#about')
 
+  const loadFeatures = async (): Promise<FeatureBundle> =>
+    await import('./../lib/features').then((res) => res.default)
+
   return (
-    <>
-      <motion.div
+    <LazyMotion features={loadFeatures}>
+      <m.div
         className='my-24 hidden h-16 w-1 rounded-full bg-gray-300 dark:bg-opacity-20 sm:block'
         initial={{ opacity: 0 }}
         transition={{ delay: 0.3, duration: 0.5 }}
@@ -21,7 +24,7 @@ export default function About(): React.ReactElement {
         }}
       />
 
-      <motion.section
+      <m.section
         ref={ref}
         className='mb-28 max-w-[45rem] scroll-mt-28 px-10 text-center leading-8 sm:mb-40 sm:px-16'
         initial={{ opacity: 0, x: 200 }}
@@ -60,7 +63,7 @@ export default function About(): React.ReactElement {
           <span className='font-medium'>history and philosophy</span>. Im also
           learning how to play the guitar.
         </p>
-      </motion.section>
-    </>
+      </m.section>
+    </LazyMotion>
   )
 }
