@@ -3,15 +3,18 @@ import Link from 'next/link'
 import React, { useState, useEffect, useRef } from 'react'
 import { lock, unlock } from 'tua-body-scroll-lock'
 import NavLink from './navLink'
-// import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid'
 import { FaReact } from 'react-icons/fa'
 import { LuGraduationCap } from 'react-icons/lu'
 import MenuOverlay from './menuOverlay'
-import {
-  useWindowWidth
-} from '@react-hook/window-size'
+import { useWindowWidth } from '@react-hook/window-size'
+import debounce from 'lodash/debounce'
+import { useActiveSectionContext } from '@/context/active-section-context'
 
 const navLinks = [
+  {
+    title: 'Home',
+    path: '#home'
+  },
   {
     title: 'About',
     path: '#about'
@@ -28,6 +31,7 @@ const navLinks = [
 
 const Navbar = (): React.ReactElement => {
   const [navbarOpen, setNavbarOpen] = useState(false)
+  const activeHashRef = useRef('#home')
   const onlyWidth = useWindowWidth()
   const navRef = useRef(null)
 
@@ -42,6 +46,29 @@ const Navbar = (): React.ReactElement => {
     }
   }, [onlyWidth])
 
+  useEffect(() => {
+    const handleDebouncedScroll = debounce(() => { handleScroll() }, 200)
+    window.addEventListener('scroll', handleDebouncedScroll)
+    return () => {
+      window.removeEventListener('scroll', handleDebouncedScroll)
+    }
+  }, [])
+
+  const { activeSection } = useActiveSectionContext()
+
+  useEffect(() => {
+    const activeHash = navLinks.find(link => link.title === activeSection)?.path
+    if (activeHash !== undefined) {
+      activeHashRef.current = activeHash
+    }
+  }, [activeSection])
+
+  function handleScroll(): void {
+    if (location.hash !== activeHashRef.current) {
+      history.pushState(null, '', activeHashRef.current)
+    }
+  }
+
   function closeOverlay(): void {
     setNavbarOpen(false)
   }
@@ -50,7 +77,7 @@ const Navbar = (): React.ReactElement => {
     <nav ref={navRef} className='fixed left-0 right-0 top-0 z-10'>
       <div className='flex flex-wrap items-center justify-between px-4 py-2 lg:py-4 bg-[#121212] bg-opacity-100'>
         <Link
-          href={'/'}
+          href='/'
           className='text-2xl font-semibold text-white md:text-5xl'
         >
           LOGO
