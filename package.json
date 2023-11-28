@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-hook/window-size": "^3.1.1",
     "clsx": "^2.0.0",
     "framer-motion": "^10.16.5",
     "next": "14.0.3",
@@ -16,7 +17,8 @@
     "react-dom": "^18",
     "react-icons": "^4.12.0",
     "react-intersection-observer": "^9.5.3",
-    "sharp": "^0.32.6"
+    "sharp": "^0.32.6",
+    "tua-body-scroll-lock": "^1.4.0"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",

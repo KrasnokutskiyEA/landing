@@ -16,10 +16,9 @@ export function useSectionInView(
   useEffect(() => {
     if (inView && Date.now() - timeOfLastClick > 1000) {
       setActiveSection(sectionName)
-
-      if (location.hash !== sectionHash) {
-        location.hash = sectionHash
-      }
+      // if (location.hash !== sectionHash) {
+      //   location.hash = sectionHash
+      // }
     }
   }, [inView, setActiveSection, timeOfLastClick, sectionName])
 

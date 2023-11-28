@@ -8,7 +8,7 @@ interface Ilink {
 
 const MenuOverlay = ({ links }: { links: Ilink[] }): React.ReactElement => {
   return (
-    <ul className='flex flex-col items-center py-4 md:hidden shadow-[0_50vh_0_50vh_rgba(0,0,0,0.6)]'>
+    <ul className='flex flex-col items-center bg-gray-900 py-4 shadow-[0_50vh_0_50vh_rgba(0,0,0,0.6)]'>
       {links.map((link, index) => (
         <li key={index}>
           <NavLink href={link.path} title={link.title} />
