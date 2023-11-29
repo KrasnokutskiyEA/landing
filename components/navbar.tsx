@@ -12,21 +12,22 @@ import { useActiveSectionContext } from '@/context/active-section-context'
 import { links } from '@/lib/data'
 
 const Navbar = (): React.ReactElement => {
-  const [navbarOpen, setNavbarOpen] = useState(false)
-  const activeHashRef = useRef('#home')
-  const onlyWidth = useWindowWidth()
-  const navRef = useRef(null)
+  const [isNavbarOpen, setNavbarOpen] = useState(false)
+  const windowWidth = useWindowWidth()
+  const { activeSection } = useActiveSectionContext()
+  const activeSectionHashRef = useRef('#home')
+  const navbarRef = useRef(null)
 
   useEffect(() => {
-    navbarOpen ? lock(navRef.current) : unlock(navRef.current)
-  }, [navbarOpen])
+    isNavbarOpen ? lock(navbarRef.current) : unlock(navbarRef.current)
+  }, [isNavbarOpen])
 
   useEffect(() => {
-    if (onlyWidth >= 768) {
+    if (windowWidth >= 768) {
       setNavbarOpen(false)
       unlock()
     }
-  }, [onlyWidth])
+  }, [windowWidth])
 
   useEffect(() => {
     const handleDebouncedScroll = debounce(() => { handleScroll() }, 200)
@@ -36,18 +37,13 @@ const Navbar = (): React.ReactElement => {
     }
   }, [])
 
-  const { activeSection } = useActiveSectionContext()
-
   useEffect(() => {
-    const activeHash = links.find(link => link.name === activeSection)?.hash
-    if (activeHash !== undefined) {
-      activeHashRef.current = activeHash
-    }
+    activeSectionHashRef.current = activeSection.hash
   }, [activeSection])
 
   function handleScroll(): void {
-    if (location.hash !== activeHashRef.current) {
-      history.pushState(null, '', activeHashRef.current)
+    if (location.hash !== activeSectionHashRef.current) {
+      history.pushState(null, '', activeSectionHashRef.current)
     }
   }
 
@@ -56,7 +52,7 @@ const Navbar = (): React.ReactElement => {
   }
 
   return (
-    <nav ref={navRef} className='fixed left-0 right-0 top-0 z-10'>
+    <nav ref={navbarRef} className='fixed left-0 right-0 top-0 z-10'>
       <div className='flex flex-wrap items-center justify-between px-4 py-2 lg:py-4 bg-[#121212] bg-opacity-100'>
         <Link href='/' className='text-2xl font-semibold text-white md:text-5xl'>
           LOGO
@@ -64,7 +60,7 @@ const Navbar = (): React.ReactElement => {
 
         <div className='mobile-menu block md:hidden'>
           {
-          !navbarOpen
+          !isNavbarOpen
             ? (
               <button
                 onClick={() => { setNavbarOpen(true) }}
@@ -94,7 +90,7 @@ const Navbar = (): React.ReactElement => {
       </div>
 
       {
-        navbarOpen
+        isNavbarOpen
           ? (
             <div onClick={closeOverlay} className='h-screen'>
               <MenuOverlay links={links} />

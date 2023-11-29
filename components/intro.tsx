@@ -60,7 +60,7 @@ export default function Intro(): React.ReactElement {
             href='#contact'
             className='group flex items-center gap-2 rounded-full bg-gradient-to-r from-orange-600 via-orange-500 to-orange-600 px-7 py-3 shadow-2xl outline-none transition hover:scale-110 focus:scale-110 active:scale-105'
             onClick={() => {
-              setActiveSection('Contact')
+              setActiveSection({ name: 'Contact', hash: '#contact' })
               setTimeOfLastClick(Date.now())
             }}
           >
