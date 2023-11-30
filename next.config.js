@@ -12,7 +12,22 @@ const nextConfig = {
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/i,
-      use: ['@svgr/webpack']
+      use: {
+        loader: '@svgr/webpack',
+        options: {
+          svgoConfig: {
+            plugins: [
+              {
+                name: 'prefixIds',
+                params: {
+                  prefixIds: false,
+                  prefixClassNames: false
+                }
+              }
+            ]
+          }
+        }
+      }
     })
 
     // Modify the file loader rule to ignore *.svg, since we have it handled now.

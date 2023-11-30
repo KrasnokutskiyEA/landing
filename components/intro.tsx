@@ -10,7 +10,7 @@ import { BsArrowRight /*, BsLinkedin */ } from 'react-icons/bs'
 import { useSectionInView } from '@/lib/hooks'
 import { useActiveSectionContext } from '@/context/active-section-context'
 import { Playfair_Display_SC } from 'next/font/google'
-import Globe from './svgs/globe.svg'
+import { Globe } from './svgs'
 import hero from '../public/hero.webp'
 
 const playfair = Playfair_Display_SC({

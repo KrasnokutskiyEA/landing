@@ -26,3 +26,33 @@ html.dark {
     scrollbar-width: none; /* Firefox */
   }
 }
+
+@layer components {
+  .burger-menu-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    padding: 0;
+  }
+  .burger-menu-btn path {
+    fill: none;
+    stroke: white;
+    stroke-width: 6;
+    transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1), stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .line-outer [node-type="path-outer"] {
+    stroke-dasharray: 60 207;
+  }
+  .line-inner [node-type="path-inner"] {
+    stroke-dasharray: 60 60;
+  }
+  .opened .line-outer [node-type="path-outer"] {
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+  }
+  .opened .line-inner [node-type="path-inner"] {
+    stroke-dasharray: 1 60;
+    stroke-dashoffset: -30;
+  }
+}

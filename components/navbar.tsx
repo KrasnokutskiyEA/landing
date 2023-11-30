@@ -3,9 +3,10 @@ import Link from 'next/link'
 import React, { useState, useEffect, useRef } from 'react'
 import { lock, unlock } from 'tua-body-scroll-lock'
 import NavLink from './navLink'
-import { FaReact } from 'react-icons/fa'
-import { LuGraduationCap } from 'react-icons/lu'
+// import { FaReact } from 'react-icons/fa'
+// import { LuGraduationCap } from 'react-icons/lu'
 import MenuOverlay from './menuOverlay'
+import BurgerBtn from './burgerBtn'
 import { useWindowWidth } from '@react-hook/window-size'
 import debounce from 'lodash/debounce'
 import { useActiveSectionContext } from '@/context/active-section-context'
@@ -51,32 +52,18 @@ const Navbar = (): React.ReactElement => {
     setNavbarOpen(false)
   }
 
+  function toggleMenu(): void {
+    setNavbarOpen(!isNavbarOpen)
+  }
+
   return (
     <nav ref={navbarRef} className='fixed left-0 right-0 top-0 z-10'>
-      <div className='flex flex-wrap items-center justify-between px-4 py-2 lg:py-4 bg-[#121212] bg-opacity-100'>
-        <Link href='/' className='text-2xl font-semibold text-white md:text-5xl'>
+      <div className='flex flex-wrap items-center justify-between px-8 py-2 bg-[#121212] bg-opacity-100'>
+        <Link href='/' className='text-2xl font-semibold text-white'>
           LOGO
         </Link>
 
-        <div className='mobile-menu block md:hidden'>
-          {
-          !isNavbarOpen
-            ? (
-              <button
-                onClick={() => { setNavbarOpen(true) }}
-                className='flex items-center rounded border border-slate-200 px-3 py-2 text-slate-200 hover:border-white hover:text-white'
-              >
-                <FaReact className='h-5 w-5' />
-              </button>
-              )
-            : (
-              <button onClick={() => { setNavbarOpen(false) }}
-                className='flex items-center rounded border border-slate-200 px-3 py-2 text-slate-200 hover:border-white hover:text-white'
-              >
-                <LuGraduationCap className='h-5 w-5' />
-              </button>
-              )}
-        </div>
+        <BurgerBtn isNavbarOpen={isNavbarOpen} onToggleMenu={toggleMenu} />
 
         <div className='menu hidden md:block md:w-auto' id='navbar'>
           <ul className='mt-0 flex p-4 md:flex-row md:space-x-8 md:p-0'>
@@ -90,13 +77,10 @@ const Navbar = (): React.ReactElement => {
       </div>
 
       {
-        isNavbarOpen
-          ? (
-            <div onClick={closeOverlay} className='h-screen'>
-              <MenuOverlay links={links} />
-            </div>
-            )
-          : null
+        isNavbarOpen &&
+          <div onClick={closeOverlay} className='h-screen'>
+            <MenuOverlay links={links} />
+          </div>
       }
     </nav>
   )
