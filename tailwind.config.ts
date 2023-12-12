@@ -18,6 +18,15 @@ const config = {
       lg: '1024px',
       xl: '1280px',
       '2xl': '1536px'
+    },
+    keyframes: {
+      'open-menu': {
+        '0%': { opacity: 0 },
+        '100%': { opacity: 1 }
+      }
+    },
+    animation: {
+      'open-menu': 'open-menu 0.7s ease-in-out forwards'
     }
   },
   plugins: []

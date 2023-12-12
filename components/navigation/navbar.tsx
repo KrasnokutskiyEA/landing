@@ -2,10 +2,8 @@
 import Link from 'next/link'
 import React, { useState, useEffect, useRef } from 'react'
 import { lock, unlock } from 'tua-body-scroll-lock'
-import NavLink from './navLink'
-// import { FaReact } from 'react-icons/fa'
-// import { LuGraduationCap } from 'react-icons/lu'
-import MenuOverlay from './menuOverlay'
+import { MdVolunteerActivism } from 'react-icons/md'
+import NavLinks from './navLinks'
 import BurgerBtn from './burgerBtn'
 import { useWindowWidth } from '@react-hook/window-size'
 import debounce from 'lodash/debounce'
@@ -57,29 +55,31 @@ const Navbar = (): React.ReactElement => {
   }
 
   return (
-    <nav ref={navbarRef} className='fixed left-0 right-0 top-0 z-10'>
-      <div className='flex flex-wrap items-center justify-between px-8 py-2 bg-[#121212] bg-opacity-100'>
+    <nav ref={navbarRef} className='fixed left-0 right-0 top-0 z-10 backdrop-blur-md'>
+      <div className='flex flex-wrap items-center justify-between px-8 py-2 bg-black bg-opacity-50'>
         <Link href='/' className='text-2xl font-semibold text-white'>
-          LOGO
+          <MdVolunteerActivism className='hover:text-orange-400' />
         </Link>
 
         <BurgerBtn isNavbarOpen={isNavbarOpen} onToggleMenu={toggleMenu} />
 
-        <div className='menu hidden md:block md:w-auto' id='navbar'>
-          <ul className='mt-0 flex p-4 md:flex-row md:space-x-8 md:p-0'>
-            {links.map((link, index) => (
-              <li key={index}>
-                <NavLink href={link.hash} title={link.name} />
-              </li>
-            ))}
-          </ul>
+        <div id='nav-links-container-desktop' className='menu hidden md:block md:w-auto'>
+          <NavLinks
+            links={links}
+            activeSection={activeSection}
+            className='mt-0 flex p-4 md:flex-row md:space-x-8 md:p-0'
+          />
         </div>
       </div>
 
       {
         isNavbarOpen &&
-          <div onClick={closeOverlay} className='h-screen'>
-            <MenuOverlay links={links} />
+          <div id='nav-links-container-mobile' onClick={closeOverlay} className='h-screen animate-open-menu'>
+            <NavLinks
+              links={links}
+              activeSection={activeSection}
+              className='flex flex-col items-center bg-black bg-opacity-50 py-4 shadow-[0_50vh_0_50vh_rgba(0,0,0,0.3)]'
+            />
           </div>
       }
     </nav>

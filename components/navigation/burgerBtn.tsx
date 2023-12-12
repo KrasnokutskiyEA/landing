@@ -1,6 +1,6 @@
 import React from 'react'
 import { clsx } from 'clsx'
-import { Burger } from './svgs'
+import { Burger } from '../svgs'
 
 export default function burgerBtn({
   isNavbarOpen,
