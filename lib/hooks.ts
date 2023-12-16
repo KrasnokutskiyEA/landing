@@ -7,7 +7,7 @@ export function useSectionInView(
   sectionName: SectionName,
   sectionHash: SectionHash,
   threshold = 0.75
-): { ref: () => void } {
+): { ref: () => void, inView: boolean } {
   const { ref, inView } = useInView({
     threshold
   })
@@ -19,5 +19,5 @@ export function useSectionInView(
     }
   }, [inView, setActiveSection, timeOfLastClick, sectionName])
 
-  return { ref }
+  return { ref, inView }
 }

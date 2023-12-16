@@ -1,6 +1,8 @@
 import About from '@/components/about'
 import Intro from '@/components/intro'
 import Projects from '@/components/projects'
+import Skills from '@/components/skills'
+import Experience from '@/components/experience'
 // import SectionDivider from '@/components/section-divider'
 
 export default function Home(): React.ReactElement {
@@ -10,6 +12,8 @@ export default function Home(): React.ReactElement {
       {/* <SectionDivider /> */}
       <About />
       <Projects />
+      <Skills />
+      <Experience />
       {/*
     <Skills />
     <Experience />
