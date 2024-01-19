@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-email/components": "^0.0.14",
+    "@react-email/tailwind": "^0.0.14",
     "@react-hook/window-size": "^3.1.1",
     "clsx": "^2.0.0",
     "framer-motion": "^10.16.5",
@@ -16,8 +18,10 @@
     "next": "14.0.3",
     "react": "^18",
     "react-dom": "^18",
+    "react-hot-toast": "^2.4.1",
     "react-icons": "^4.12.0",
     "react-intersection-observer": "^9.5.3",
+    "resend": "^3.0.0",
     "sharp": "^0.32.6",
     "tua-body-scroll-lock": "^1.4.0"
   },

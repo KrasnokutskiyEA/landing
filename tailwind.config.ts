@@ -28,10 +28,19 @@ const config = {
       'open-menu': {
         '0%': { opacity: 0 },
         '100%': { opacity: 1 }
+      },
+      spin: {
+        from: {
+          transform: 'rotate(0deg)'
+        },
+        to: {
+          transform: 'rotate(360deg)'
+        }
       }
     },
     animation: {
-      'open-menu': 'open-menu 0.7s ease-in-out forwards'
+      'open-menu': 'open-menu 0.7s ease-in-out forwards',
+      spin: 'spin 1s linear infinite'
     }
   },
   plugins: []
