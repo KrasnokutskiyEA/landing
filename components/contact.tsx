@@ -1,6 +1,7 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useFormState } from 'react-dom'
 import SectionHeading from './section-heading'
 import { motion } from 'framer-motion'
 import { useSectionInView } from '@/lib/hooks'
@@ -10,6 +11,19 @@ import toast from 'react-hot-toast'
 
 export default function Contact(): React.ReactElement {
   const { ref } = useSectionInView('Contact', '#contact')
+  const [formState, setFormState] = useState({ isError: false, message: '' })
+  const [state, formAction] = useFormState(sendEmail, formState)
+
+  function resetFormState(): void {
+    setFormState({ isError: false, message: '' })
+  }
+
+  useEffect(() => {
+    if (state.isError || state.message !== '') {
+      state.isError ? toast.error(state.message) : toast.success(state.message)
+    }
+    resetFormState()
+  }, [state])
 
   return (
     <motion.section
@@ -29,7 +43,7 @@ export default function Contact(): React.ReactElement {
         once: true
       }}
     >
-      <SectionHeading>Contact me</SectionHeading>
+      <SectionHeading>Contact us</SectionHeading>
 
       <p className='text-gray-700 -mt-6 dark:text-white/80'>
         Please contact me directly at{' '}
@@ -41,19 +55,7 @@ export default function Contact(): React.ReactElement {
 
       <form
         className='mt-10 flex flex-col dark:text-black'
-        // eslint-disable-next-line
-        action={async (formData) => {
-          const { error } = await sendEmail(formData)
-
-          console.log('----error=', error)
-          if (error != null) {
-            toast.error(error)
-            return
-          }
-
-          toast.success('Email sent successfully!')
-        }
-    }
+        action={formAction}
       >
         <input
           className='h-14 px-4 rounded-lg borderBlack dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none'

@@ -67,32 +67,6 @@ export default function Intro(): React.ReactElement {
             <h1 className='text-2xl font-[700] text-white'>Contact us </h1>
             <BsArrowRight className='text-2xl font-[700] text-white opacity-70 transition group-hover:translate-x-1' />
           </Link>
-          {/*
-          <a
-            className='borderBlack group flex cursor-pointer items-center gap-2 rounded-full bg-white px-7 py-3 outline-none transition hover:scale-110 focus:scale-110 active:scale-105 dark:bg-white/10'
-            href='/CV.pdf'
-            download
-          >
-            Download CV{' '}
-            <HiDownload className='opacity-60 transition group-hover:translate-y-1' />
-          </a>
-
-          <a
-            className='borderBlack flex cursor-pointer items-center gap-2 rounded-full bg-white p-4 text-gray-700 transition hover:scale-[1.15] hover:text-gray-950 focus:scale-[1.15] active:scale-105 dark:bg-white/10 dark:text-white/60'
-            href='https://linkedin.com'
-            target='_blank'
-          >
-            <BsLinkedin />
-          </a>
-
-          <a
-            className='borderBlack flex cursor-pointer items-center gap-2 rounded-full bg-white p-4 text-[1.35rem] text-gray-700 transition hover:scale-[1.15] hover:text-gray-950 focus:scale-[1.15] active:scale-105 dark:bg-white/10 dark:text-white/60'
-            href='https://github.com'
-            target='_blank'
-          >
-            <FaGithubSquare />
-          </a>
-          */}
         </div>
       </div>
     </section>

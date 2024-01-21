@@ -7,31 +7,31 @@ import ContactFormEmail from '@/email/contact-form-email'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
-interface IData {
-  data?: unknown
-  error?: string
+interface IEmail {
+  isError: boolean
+  message: string
 }
 
-export const sendEmail = async (formData: FormData): Promise<IData> => {
+export async function sendEmail (prevState: IEmail, formData: FormData): Promise<IEmail> {
   const senderEmail = formData.get('senderEmail')
   const message = formData.get('message')
 
   // simple server-side validation
   if (!validateString(senderEmail, 500)) {
     return {
-      error: 'Invalid sender email'
+      isError: true,
+      message: 'Invalid sender email'
     }
   }
   if (!validateString(message, 5000)) {
     return {
-      error: 'Invalid message'
+      isError: true,
+      message: 'Invalid message'
     }
   }
 
-  let data
-
   try {
-    data = await resend.emails.send({
+    const resp = await resend.emails.send({
       from: 'Contact Form <onboarding@resend.dev>',
       to: 'krasnokutskiyea@yandex.ru',
       subject: 'Message from contact form',
@@ -41,13 +41,12 @@ export const sendEmail = async (formData: FormData): Promise<IData> => {
         senderEmail
       })
     })
-  } catch (error: unknown) {
-    return {
-      error: getErrorMessage(error)
-    }
-  }
 
-  return {
-    data
+    if (resp.error !== null) {
+      return { isError: true, message: getErrorMessage(resp.error) }
+    }
+    return { isError: false, message: 'Email sent successfully!' }
+  } catch (error: unknown) {
+    return { isError: true, message: getErrorMessage(error) }
   }
 }
